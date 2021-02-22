@@ -3,6 +3,7 @@ const express = require('express')
 const logger = require('morgan')
 const path = require('path')
 const graphqlHTTP = require('express-graphql').graphqlHTTP
+const mongoose = require('mongoose')
 
 const indexRouter = require('./routes/index')
 const schema = require('./schema/schema')

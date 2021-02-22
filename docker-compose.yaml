@@ -4,11 +4,10 @@ services:
     image: 'mongo'
     container_name: 'mynodeapp-mongo'
     environment:
-      - MONGO_INITDB_DATABASE=mynodeapp-db
-      - MONGO_INITDB_ROOT_USERNAME=myuser
-      - MONGO_INITDB_ROOT_PASSWORD=mypassword
+      - MONGO_INITDB_DATABASE=${DB_NAME}
+      - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
     volumes:
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
       - ./mongo-volume:/data/db
     ports:
       - '27017-27019:27017-27019'
