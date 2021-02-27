@@ -5,6 +5,7 @@ const path = require('path')
 const dotenv = require('dotenv')
 const graphqlHTTP = require('express-graphql').graphqlHTTP
 const mongoose = require('mongoose')
+const cors = require('cors')
 dotenv.config()
 
 const indexRouter = require('./routes/index')
@@ -17,6 +18,7 @@ const dbConnection = mongoose.connection
 dbConnection.on('error', e => console.log(`Connection error: ${e}`))
 dbConnection.on('open', () => console.log('Connected to DB'))
 
+app.use(cors())
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
